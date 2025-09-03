@@ -1,58 +1,72 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 body, * {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
-    margin: 1rem;
+  margin: 1rem;
 }
 
-.cards {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+a {
+  display: inline-block;
+  margin: 1rem;
+  color: blue;
+  text-decoration: underline;
 }
 
-.card {
-    flex-basis: 31%;
-    margin: 1rem 0.4rem;
-    padding: 1rem 0.4rem 2.5rem 0.4rem;
-    border: solid 1px lightgrey;
-    border-radius: 15px;
-    box-shadow: 3px 2px 6px lightgrey;
+/* Table styling */
+table {
+  border-collapse: collapse;
+  width: 90%;
+  margin: 1rem auto;
+  box-shadow: 3px 2px 6px lightgrey;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-.card__email {
-    font-size: 1rem;
+th, td {
+  border: 1px solid lightgrey;
+  padding: 10px;
+  text-align: left;
 }
 
+th {
+  background-color: pink;
+  font-weight: bold;
+}
+
+/* Form styling */
 .form-wrapper {
-    font-size: 18px;
-    max-width: 768px;
-    margin: 2rem auto;
-    padding: 2rem;
-    border: solid 1px lightgrey;
-    border-radius: 15px;
-    box-shadow: 3px 2px 6px lightgrey;
+  font-size: 18px;
+  width: 50%;             /* 👈 fixed width */
+  margin: 2rem auto;      /* 👈 center horizontally */
+  padding: 2rem;
+  border: solid 1px lightgrey;
+  border-radius: 15px;
+  box-shadow: 3px 2px 6px lightgrey;
+  background-color: #fff;
 }
+
 
 label, input {
-    margin-top: 5px;
-    display: block;
-    font-size: inherit;
+  margin-top: 5px;
+  display: block;
+  font-size: inherit;
 }
 
-input[type="text"] {
-    padding: .25rem;
+input[type="text"], input[type="number"] {
+  padding: .25rem;
+  width: 50%;
 }
 
-input[type="submit"] {
-    background-color: lightgrey;
-    border: none;
-    padding: .375rem 1rem;
-    margin-top: 10px;
+input[type="submit"], button {
+  background-color: lightgrey;
+  border: none;
+  padding: .375rem 1rem;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 5px;
 }

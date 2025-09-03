@@ -8,19 +8,62 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // * Please DO NOT INCLUDE the private app access token in your repo. Don't do this practicum in your normal account.
-const PRIVATE_APP_ACCESS = '';
+
 
 // TODO: ROUTE 1 - Create a new app.get route for the homepage to call your custom object data. Pass this data along to the front-end and create a new pug template in the views folder.
 
-// * Code for Route 1 goes here
+app.get("/", async (req, res) => {
+  const url =
+    "https://api.hubspot.com/crm/v4/objects/p3403624_pets?properties=pet_name,pet_type,pet_age";
+  const headers = {
+    Authorization: `Bearer ${PRIVATE_APP_ACCESS}`,
+    "Content-Type": "application/json",
+  };
+
+  try {
+    const resp = await axios.get(url, { headers });
+    const data = resp.data.results || [];
+    res.render("homepage", { title: "Pets Homepage", data });
+  } catch (error) {
+    console.error("Error fetching pets:", error.response?.data || error.message);
+    res.status(500).send("Error fetching pets");
+  }
+});
+
+
 
 // TODO: ROUTE 2 - Create a new app.get route for the form to create or update new custom object data. Send this data along in the next route.
 
-// * Code for Route 2 goes here
+app.get("/update-cobj", (req, res) => {
+  res.render("updates", {
+    title: "Update Custom Object Form | Integrating With HubSpot I Practicum",
+  });
+});
+
 
 // TODO: ROUTE 3 - Create a new app.post route for the custom objects form to create or update your custom object data. Once executed, redirect the user to the homepage.
 
-// * Code for Route 3 goes here
+app.post("/update-cobj", async (req, res) => {
+  const { pet_name, pet_type, pet_age } = req.body;
+
+  const url = "https://api.hubspot.com/crm/v4/objects/p3403624_pets";
+  const headers = {
+    Authorization: `Bearer ${PRIVATE_APP_ACCESS}`,
+    "Content-Type": "application/json",
+  };
+
+  const newPet = {
+    properties: { pet_name, pet_type, pet_age },
+  };
+
+  try {
+    await axios.post(url, newPet, { headers });
+    res.redirect("/"); // 🔙 after saving, go back to homepage
+  } catch (error) {
+    console.error("Error creating pet:", error.response?.data || error.message);
+    res.status(500).send("Error creating pet");
+  }
+});
 
 /** 
 * * This is sample code to give you a reference for how you should structure your calls. 
