@@ -1,72 +1,93 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
 
-body, * {
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-  padding: 0;
+.container {
+  padding: 30px;
+  max-width: 800px;
+  margin: auto;
 }
 
 h1 {
-  margin: 1rem;
+  margin-bottom: 15px;
+  font-size:40px;
 }
 
-a {
+.add-link {
   display: inline-block;
-  margin: 1rem;
-  color: blue;
-  text-decoration: underline;
+  margin-bottom: 20px;  /* space below link */
+  padding: 8px 14px;
+  background: #0073e6;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.2s ease-in-out;
 }
 
-/* Table styling */
+.add-link:hover {
+  background: #005bb5;
+}
+
 table {
+  width: 100%;
   border-collapse: collapse;
-  width: 90%;
-  margin: 1rem auto;
-  box-shadow: 3px 2px 6px lightgrey;
-  border-radius: 10px;
-  overflow: hidden;
+  margin-top: 10px;
+  background: white;
 }
 
 th, td {
-  border: 1px solid lightgrey;
   padding: 10px;
+  border: 1px solid #ddd;
   text-align: left;
 }
 
 th {
-  background-color: pink;
+  background: #f0f0f0;
+}
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  max-width: 400px;
+  margin-top: 20px;
+}
+
+label {
   font-weight: bold;
 }
 
-/* Form styling */
-.form-wrapper {
-  font-size: 18px;
-  width: 50%;             /* 👈 fixed width */
-  margin: 2rem auto;      /* 👈 center horizontally */
-  padding: 2rem;
-  border: solid 1px lightgrey;
-  border-radius: 15px;
-  box-shadow: 3px 2px 6px lightgrey;
-  background-color: #fff;
+input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-
-label, input {
-  margin-top: 5px;
-  display: block;
-  font-size: inherit;
-}
-
-input[type="text"], input[type="number"] {
-  padding: .25rem;
-  width: 50%;
-}
-
-input[type="submit"], button {
-  background-color: lightgrey;
+.btn {
+  background: #0073e6;
+  color: white;
+  padding: 10px;
   border: none;
-  padding: .375rem 1rem;
-  margin-top: 10px;
-  cursor: pointer;
   border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background: #005bb5;
+}
+
+.return-link {
+  display: inline-block;
+  margin-top: 15px;
+  color: #0073e6;
+  text-decoration: none;
+}
+
+.return-link:hover {
+  text-decoration: underline;
 }

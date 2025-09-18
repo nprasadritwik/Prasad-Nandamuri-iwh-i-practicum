@@ -5,18 +5,21 @@ html
     meta(name="viewport", content="width=device-width, initial-scale=1")
     link(rel="stylesheet", href="/css/style.css")
   body
-    h1= title
-    form(action="/update-cobj" method="POST" class="form-wrapper ")
-      label(for="pet_name") Pet Name:
-      input(type="text" name="pet_name" required)
-      br
-      label(for="pet_type") Pet Type:
-      input(type="text" name="pet_type" required)
-      br
-      label(for="pet_age") Pet Age:
-      input(type="number" name="pet_age" required)
-      br
-      button(type="submit") Create Pet
-      a(href="/") Return to the homepage
-    p
-      
+    .container
+      h1= title
+      form(action="/update-cobj" method="POST" class="form-wrapper")
+        label(for="pet_name") Pet Name:
+        input(type="text" name="pet_name" required)
+       
+
+        label(for="pet_type") Pet Type:
+        input(type="text" name="pet_type" required)
+       
+
+        label(for="pet_age") Pet Age:
+        input(type="number" name="pet_age" required)
+       
+
+        button(type="submit" class="btn") Create Pet
+        a.return-link(href="/") Return to the homepage
+
